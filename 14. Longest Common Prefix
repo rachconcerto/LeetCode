@@ -1,0 +1,43 @@
+class Solution:
+    def longestCommonPrefix(self, strs):
+        if len(strs) > 0 and len(strs) <= 200:
+            if len(strs[0]) > 0 and len(strs[0]) <= 200:
+                str_1 = strs[0]
+                com_str_list = []
+                for i in range(1, len(str_1)+1):
+                    com_str = str_1[0:i]
+                    for k in strs:
+                        if com_str == k[0:i]:
+                            continue
+                        else:
+                            com_str = ''
+                            break
+                    com_str_list.append(com_str)
+                return max(com_str_list, key=len)
+            else:
+                return ""
+        else:
+            return ""
+            
+#Longest Common words
+class Solution:
+    def longestCommonWords(self, strs):
+        if len(strs) > 0 and len(strs) <= 200:
+            if len(strs[0]) > 0 and len(strs[0]) <= 200:
+                str_1 = strs[0]
+                com_str_list = []
+                for i in range(len(str_1)):
+                    for j in range(i+1, len(str_1)+1):
+                        com_str = str_1[i:j]
+                        for k in strs:
+                            if com_str in k:
+                                continue
+                            else:
+                                com_str = ''
+                                break
+                        com_str_list.append(com_str)
+                return max(com_str_list, key=len)
+            else:
+                return ""
+        else:
+            return ""
