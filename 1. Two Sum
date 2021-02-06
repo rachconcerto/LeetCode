@@ -1,4 +1,4 @@
-#1st time 
+#1st edtion
 class Solution:
     def twoSum(self, nums, target):
         check = True
@@ -14,3 +14,13 @@ class Solution:
                 i+=1
         return [n1, n2]
           
+
+#2nd edition
+class Solution:
+    def twoSum(self, nums, target):
+        dic ={}
+        for i in range(len(nums)):
+            if target - nums[i] in dic:
+                return [dic.get(target-nums[i]), i]  
+            else:
+                dic[nums[i]]= i
