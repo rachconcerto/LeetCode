@@ -1,0 +1,24 @@
+# The isBadVersion API is already defined for you.
+# @param version, an integer
+# @return an integer
+# def isBadVersion(version):
+
+#1st submission
+class Solution:
+    def firstBadVersion(self, n):
+        alpha, omega = 1, n
+        while alpha <= omega:
+            median = (alpha+omega)//2
+            if isBadVersion(median) == True:
+                if isBadVersion(median) == False:
+                    return median
+                else:
+                    omega = median-1
+            else:
+                if isBadVersion(median+1) == True:
+                    return median+1
+                else:
+                    alpha = median+1
+                
+        return alpha
+        
