@@ -1,0 +1,33 @@
+#1st submit
+class Solution:
+    def searchInsert(self, nums, target):
+        if target < min(nums):
+            return 0
+        elif target > max(nums):
+            return len(nums)  
+
+        for i in nums:
+            if target == i:
+                return nums.index(i)
+
+        from statistics import median
+        is_end = False
+        new_nums = nums.copy()
+        while is_end == False:
+            med_num = int(median(new_nums))
+            max_num = int(max(new_nums))
+            min_num = int(min(new_nums))
+            if target == med_num:
+                is_end = True
+                return int(len(nums)/2)         
+            elif target < med_num:           
+                new_nums = new_nums[0:int(len(new_nums)/2)+1]
+            else:
+                new_nums = new_nums[int(len(new_nums)/2):]
+
+            if len(new_nums) == 2:
+                key = new_nums[0]
+                is_end = True
+                return nums.index(key)+1
+
+
