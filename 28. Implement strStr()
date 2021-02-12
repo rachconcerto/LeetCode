@@ -1,0 +1,13 @@
+#1st submit
+class Solution:
+    def strStr(self, haystack, needle):
+        if needle not in haystack:
+            return -1
+        elif needle == "":
+            return 0
+        else:
+            for i in range(len(haystack)):
+                ne_len = len(needle)
+                if haystack[i] == needle[0]:
+                    if haystack[i:i + ne_len] == needle:
+                        return i
